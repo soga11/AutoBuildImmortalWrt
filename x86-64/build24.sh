@@ -50,19 +50,17 @@ PACKAGES="$PACKAGES luci-i18n-firewall-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-opkg-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
 
-# 主题
-PACKAGES="$PACKAGES luci-theme-argon"
-PACKAGES="$PACKAGES luci-app-argon-config"
-PACKAGES="$PACKAGES luci-i18n-argon-config-zh-cn"
-
-# 文件管理
-PACKAGES="$PACKAGES luci-i18n-filebrowser-zh-cn"
-PACKAGES="$PACKAGES luci-i18n-diskman-zh-cn"
-PACKAGES="$PACKAGES luci-i18n-samba4-zh-cn"
 
 # ⭐ Passwall2（唯一的代理工具）
 PACKAGES="$PACKAGES luci-app-passwall2"
 PACKAGES="$PACKAGES luci-i18n-passwall2-zh-cn"
+# Passwall2 依赖
+PACKAGES="$PACKAGES dnsmasq-full"
+PACKAGES="$PACKAGES ipset"
+PACKAGES="$PACKAGES iptables"
+PACKAGES="$PACKAGES iptables-mod-tproxy"
+PACKAGES="$PACKAGES kmod-ipt-nat"
+
 
 # 网络工具
 PACKAGES="$PACKAGES luci-app-wol"
