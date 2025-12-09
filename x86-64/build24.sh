@@ -42,30 +42,44 @@ fi
 # 输出调试信息
 echo "$(date '+%Y-%m-%d %H:%M:%S') - 开始构建固件..."
 
-# ============= imm仓库内的插件==============
-# 定义所需安装的包列表 下列插件你都可以自行删减
-PACKAGES=""
+## ============= ImmortalWrt 官方仓库插件 ==============
+
+# 基础工具
 PACKAGES="$PACKAGES curl"
-PACKAGES="$PACKAGES luci-i18n-diskman-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-firewall-zh-cn"
+PACKAGES="$PACKAGES luci-i18n-opkg-zh-cn"
+PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
+
+# 主题
 PACKAGES="$PACKAGES luci-theme-argon"
 PACKAGES="$PACKAGES luci-app-argon-config"
 PACKAGES="$PACKAGES luci-i18n-argon-config-zh-cn"
-#24.10
-PACKAGES="$PACKAGES luci-i18n-package-manager-zh-cn"
-PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
-PACKAGES="$PACKAGES luci-i18n-passwall-zh-cn"
-PACKAGES="$PACKAGES luci-app-openclash"
-PACKAGES="$PACKAGES luci-i18n-homeproxy-zh-cn"
-PACKAGES="$PACKAGES openssh-sftp-server"
+
+# 文件管理
+PACKAGES="$PACKAGES luci-i18n-filebrowser-zh-cn"
+PACKAGES="$PACKAGES luci-i18n-diskman-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-samba4-zh-cn"
-# 文件管理器
-PACKAGES="$PACKAGES luci-i18n-filemanager-zh-cn"
-# 静态文件服务器dufs(推荐)
+
+# ⭐ Passwall2（唯一的代理工具）
+PACKAGES="$PACKAGES luci-app-passwall2"
+PACKAGES="$PACKAGES luci-i18n-passwall2-zh-cn"
+
+# 网络工具
+PACKAGES="$PACKAGES luci-app-wol"
+PACKAGES="$PACKAGES luci-i18n-wol-zh-cn"
+PACKAGES="$PACKAGES openssh-sftp-server"
+
+# 静态文件服务器
+PACKAGES="$PACKAGES luci-app-dufs"
 PACKAGES="$PACKAGES luci-i18n-dufs-zh-cn"
-# ======== shell/custom-packages.sh =======
-# 合并imm仓库以外的第三方插件
+
+# 系统工具（iStore 必备）
+PACKAGES="$PACKAGES fdisk"
+PACKAGES="$PACKAGES script-utils"
+
+# ============= 第三方软件包 ==============
 PACKAGES="$PACKAGES $CUSTOM_PACKAGES"
+
 
 
 # 判断是否需要编译 Docker 插件
